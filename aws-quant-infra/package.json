@@ -4,7 +4,7 @@
   "description": "Example project using the Serverless Framework, JavaScript, AWS Lambda, AWS API Gateway and GitLab Pages.",
   "dependencies": {
     "cdk-nag": "^2.26.6",
-    "serverless": "^1.56.1",
+    "serverless": "^3.31.0",
     "serverless-jest-plugin": "^0.2.1",
     "serverless-offline": "^5.12.0",
     "serverless-stack-output": "^0.2.3"
