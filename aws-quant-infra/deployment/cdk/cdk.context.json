@@ -1,0 +1,53 @@
+{
+  "deployment_prefix": "Mvp",
+  "project": "PortfolioMonitoring",
+  "region": "us-east-1",
+  "cidr_range": "10.251.0.0/16",
+  "cidr_subnet_mask": 24,
+  "portfolio_table_replica_regions": [
+    "us-east-2"
+  ],
+  "remove_tables": true,
+  "availability-zones:account=XXXXXXXXXXXX:region=us-east-1": [
+    "us-east-1a",
+    "us-east-1b",
+    "us-east-1c",
+    "us-east-1d",
+    "us-east-1e",
+    "us-east-1f"
+  ],
+  "jobPortfolioTrackerLogGroup": "/aws/batch/portfolio-tracker/logs",
+  "jobMarketDataLogGroup": "/aws/batch/market-data/logs",
+  "availability-zones:account=XXXXXXXXXXXX:region=us-east-1": [
+    "us-east-1a",
+    "us-east-1b",
+    "us-east-1c",
+    "us-east-1d",
+    "us-east-1e",
+    "us-east-1f"
+  ],
+  "availability-zones:account=XXXXXXXXXXXX:region=us-east-1": [
+    "us-east-1a",
+    "us-east-1b",
+    "us-east-1c",
+    "us-east-1d",
+    "us-east-1e",
+    "us-east-1f"
+  ],
+  "availability-zones:account=XXXXXXXXXXXX:region=us-east-1": [
+    "us-east-1a",
+    "us-east-1b",
+    "us-east-1c",
+    "us-east-1d",
+    "us-east-1e",
+    "us-east-1f"
+  ],
+  "availability-zones:account=XXXXXXXXXXXX:region=us-east-1": [
+    "us-east-1a",
+    "us-east-1b",
+    "us-east-1c",
+    "us-east-1d",
+    "us-east-1e",
+    "us-east-1f"
+  ]
+}

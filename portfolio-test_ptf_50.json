@@ -1,0 +1,1 @@
+{"portf_id": "836f371e8f355fef40271ed159b362e8", "portf_create_ts": 1648665078.860413, "positions": [], "portf_name": "test_ptf_50", "handler_info": {"refresh_sec": "60", "deploy": "batch"}, "app_config_dict": {"Configuration": "PortfolioMonitoringConfigProfile", "Application": "PortfolioMonitoring", "Environment": "dev"}}

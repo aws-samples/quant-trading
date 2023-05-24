@@ -1,0 +1,39 @@
+{
+  "env":"dev",
+  "market_data": {
+    "source":"BPIPE",
+    "bpipe_connect": {
+      "host": "",
+      "app": ""
+    },
+    "version":"sandbox",
+    "token_secret":"api_token_pk_sandbox",
+    "token_secret_streaming": "api_token_pk",
+    "url": "https://cloud-sse.iexapis.com",
+    "streaming_endpoint_equity":"stocksUSNoUTP",
+    "default_handler": {
+      "deploy" : {
+        "mode":"batch",
+        "cmd": "/src/subscribe_market_data.py",
+        "refresh_sec" :  "25",
+        "job_queue" :  "MvpPortfolioMonitoring_q_ec2"
+      },
+      "symbol_stripe_size" : "1",
+      "stale_threshold" : "10m"
+    }
+  },
+  "portfolio_tracker": {
+  "default_handler": {
+    "deploy" : {
+      "mode":"batch",
+      "cmd": "/src/portfolio_tracker.py",
+      "refresh_sec" :  "25",
+      "job_queue" :  "MvpPortfolioMonitoring_q_ec2"
+    }
+  }
+  },
+  "secrets": [
+    "api_token_pk_sandbox",
+    "api_token_pk"
+  ]
+}

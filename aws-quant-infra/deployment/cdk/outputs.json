@@ -1,0 +1,46 @@
+{
+  "AppConfigStack": {
+    "MvpPortfolioMonitoringAppConfigSsmManagerAppConfigDetailsCfnOutput904A98B6": "{\"Application\":\"PortfolioMonitoring\",\"Configuration\":\"PortfolioMonitoringConfigProfile\",\"dev\":\"1\"}"
+  },
+  "DbStack": {
+    "ExportsOutputFnGetAttMvpPortfolioMonitoringSystemEventTableF4F7186EStreamArn23A545F0": "arn:aws:dynamodb:us-east-1:763406250311:table/MvpPortfolioMonitoringSystemEventTable/stream/2023-02-07T16:10:28.309",
+    "MvpPortfolioMonitoringDbSsmManagerPortfolioMapTableCfnOutput27860BE4": "MvpPortfolioMonitoringSymbolTable",
+    "MvpPortfolioMonitoringDbSsmManagerTimestreamTablesCfnOutputE81006F3": "{\"market_data_table\":\"realtime_data\",\"portfolio_table\":\"portfolio_tracker\"}",
+    "MvpPortfolioMonitoringDbSsmManagerTimestreamDbCfnOutput1E60B91B": "MvpPortfolioMonitoringTimestream",
+    "MvpPortfolioMonitoringDbSsmManagerSystemEventTableCfnOutput945C9CAD": "MvpPortfolioMonitoringSystemEventTable",
+    "ExportsOutputFnGetAttMvpPortfolioMonitoringPortfoliosEE6961AAStreamArnDA5B06C8": "arn:aws:dynamodb:us-east-1:763406250311:table/MvpPortfolioMonitoringPortfolioTable/stream/2023-02-07T16:10:28.141",
+    "MvpPortfolioMonitoringDbSsmManagerPortfoliosTableCfnOutput9B0F40DA": "MvpPortfolioMonitoringPortfolioTable"
+  },
+  "EnvStack": {
+    "MvpPortfolioMonitoringEnvSsmManagerComputeIamPolicyNameCfnOutput1AA9E9A8": "MvpPortfolioMonitoringComputePolicy",
+    "MvpPortfolioMonitoringEnvSsmManagerCodecommitRepoCloneUrlCfnOutputA1404F14": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/MvpPortfolioMonitoring-code-repo",
+    "ExportsOutputRefMvpPortfolioMonitoringVpc00110CB6256AAB10": "vpc-01e86fd53926dacea",
+    "ExportsOutputRefMvpPortfolioMonitoringComputePolicy8EB89484519526C6": "arn:aws:iam::763406250311:policy/MvpPortfolioMonitoringComputePolicy",
+    "ExportsOutputRefMvpPortfolioMonitoringVpcMvpPortfolioMonitoringprivateSubnet2Subnet3C311C6749BA2DB0": "subnet-0153bbc030b57e13f",
+    "MvpPortfolioMonitoringEnvSsmManagerVpcIdCfnOutputEC240D5B": "vpc-01e86fd53926dacea",
+    "MvpPortfolioMonitoringEnvSsmManagerCodecommitRepoNameCfnOutput8D17DDEE": "MvpPortfolioMonitoring-code-repo",
+    "ExportsOutputRefMvpPortfolioMonitoringVpcMvpPortfolioMonitoringprivateSubnet1Subnet9BA210F8599B49B9": "subnet-0ded6f5be60045fe4"
+  },
+  "SecretsStack": {
+    "MvpPortfolioMonitoringEnvSsmManagerSecretNamesCfnOutputAD87BDE6": "{\"values\":[\"api_token_pk_sandbox\",\"api_token_pk\"]}"
+  },
+  "BatchStack": {
+    "MvpPortfolioMonitoringEnvSsmManagerBatchEc2JobQueueNameCfnOutput2B29286B": "MvpPortfolioMonitoring_q_ec2",
+    "MvpPortfolioMonitoringEnvSsmManagerBatchComputeEnvironmentsCfnOutput79265BED": "{\"ec2_od\":\"MvpPortfolioMonitoring_ec2_od\",\"ec2_spot\":\"MvpPortfolioMonitoring_ec2_spot\",\"fargate_od\":\"MvpPortfolioMonitoring_fargate\",\"fargate_spot\":\"MvpPortfolioMonitoring_fargate_spot\"}",
+    "MvpPortfolioMonitoringEnvSsmManagerBatchImageUriCfnOutput3A45CE6D": "763406250311.dkr.ecr.us-east-1.amazonaws.com/cdk-hnb659fds-container-assets-763406250311-us-east-1:6b481850005179578ff09277d0a3a327e78f19da3caa56dba51504d4388e7bb6",
+    "MvpPortfolioMonitoringEnvSsmManagerBatchTestBatchDockerJobDefCfnOutput30BCF9B5": "MvpPortfolioMonitoring_test_docker",
+    "MvpPortfolioMonitoringEnvSsmManagerBatchPortfolioTrackerJobDefCfnOutputA61BE816": "MvpPortfolioMonitoring_portfolio_tracker",
+    "MvpPortfolioMonitoringEnvSsmManagerBatchFargateJobQueueNameCfnOutputEC7C7A53": "MvpPortfolioMonitoring_q_fargate",
+    "MvpPortfolioMonitoringEnvSsmManagerBatchGetMarketDataJobDefCfnOutput6A568336": "MvpPortfolioMonitoring_get_market_data"
+  },
+  "LambdaStack": {
+    "MvpPortfolioMonitoringEnvSsmManagerTradingStartStopLambdaNameCfnOutput5B84B11A": "MvpPortfolioMonitoring_trading_start_stop",
+    "MvpPortfolioMonitoringEnvSsmManagerLambdaImageUriCfnOutput0A55492B": "763406250311.dkr.ecr.us-east-1.amazonaws.com/cdk-hnb659fds-container-assets-763406250311-us-east-1:aba8f4892f777d94f4fa3eb71b0e503f3f72f5402c52602dc5d97cd6096af165",
+    "MvpPortfolioMonitoringEnvSsmManagerLambdaRoleNameCfnOutput7AAA66AA": "MvpPortfolioMonitoringLambaRole",
+    "MvpPortfolioMonitoringEnvSsmManagerTradingEODEventRuleCfnOutput6E42D170": "trading_EOD",
+    "MvpPortfolioMonitoringEnvSsmManagerTradingSODEventRuleCfnOutput65C6F3B8": "trading_SOD",
+    "MvpPortfolioMonitoringEnvSsmManagerTestDockerLambdaNameCfnOutput400B1DCD": "MvpPortfolioMonitoring_test_docker_handler",
+    "MvpPortfolioMonitoringEnvSsmManagerPortfolioUpdateLambdaNameCfnOutputDB28FB96": "MvpPortfolioMonitoring_portfolio_update",
+    "MvpPortfolioMonitoringEnvSsmManagerSystemEventsLambdaNameCfnOutput775675D6": "MvpPortfolioMonitoring_system_events_handler"
+  }
+}
