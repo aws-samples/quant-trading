@@ -63,7 +63,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Architecture Diagram][product-screenshot]
+![Architecture Diagram of Installation][product-screenshot1]
+![Architecture Diagram of Operational View][product-screenshot2]
 
 About the project...
 
@@ -226,7 +227,8 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: assets/MarketData_RefArch.png
+[product-screenshot1]: assets/AWS_Quant_Real_Time_Operational_View.drawio.png
+[product-screenshot2]: assets/AWS_Quant_Real_Time_Installation.drawio.png
 [aws-cdk]: https://img.shields.io/badge/-AWS%20CDK-orange
 [cdk-url]: https://aws.amazon.com/cdk/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
