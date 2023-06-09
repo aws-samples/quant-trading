@@ -45,8 +45,10 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#initial-setup">Initial Setup</a></li>
+        <li><a href="#cdk-deployment">CDK Deployment</a></li>
+        <li><a href="#adding-api-key">Adding API Key</a></li>
+        <li><a href="#looking-at-the-results">Looking at the Results</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -70,7 +72,7 @@ About the project...
 
 This is a codebase to initialize the underlying infrastrucure and stacks needed for real time quantitative trading as well as the basic application level logic. As a quant, your job is to focus on quantitative logic, the reality is that you have to worry about underlying infrastructure and a lot of different layers when deploying solutions. For example, where to run, how to achieve elasticity, etc. This repository and the event-driven infrastructure provided aim to provide a quick start and entry point into your own quantitative work and to help alleviate these challenges. The solution helps take care of SDLC, market data durability, market data connectivity, DevOps (elasticity), as well as the management of the underlying infrastructure. We use P&L calculations just as an example, but we'll leave the secret sauce up to you.
 
-This real time market portfolio application on AWS is setup through the [https://aws.amazon.com/cdk/](AWS CDK). The deployed CDK infrastructure comes with an example portfolio of the S&P 500 based on intraday momentum. The intraday momentum pattern says that the first half-hour return on the market since the previous day’s market close will predict the last half-hour return. This predictability will be stronger on more volatile days, on higher volume days, on recession days, and on major macroeconomic news release days.
+This real time market portfolio application on AWS is setup through the [AWS CDK](https://aws.amazon.com/cdk/). The deployed CDK infrastructure comes with an example portfolio of the S&P 500 based on intraday momentum. The intraday momentum pattern says that the first half-hour return on the market since the previous day’s market close will predict the last half-hour return. This predictability will be stronger on more volatile days, on higher volume days, on recession days, and on major macroeconomic news release days.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -99,18 +101,16 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 How to get started. This project is deployed using the AWS CDK.
 
-### Prerequisites
-
 ### Initial Setup
 
-You will use [https://aws.amazon.com/cloud9/](AWS Cloud9) as the IDE to setup the code and deploy the CDK environment. You can also use a different IDE if you’d prefer.
+You will use [AWS Cloud9](https://aws.amazon.com/cloud9/) as the IDE to setup the code and deploy the CDK environment. You can also use a different IDE if you’d prefer.
 
 1. Navigate to the **AWS Cloud9** console and press **Create environment**.
 2. Enter a name - **MarketPortfolioEnv**.
 3. Use a **t2.micro** instance type.
 4. Leave all other settings as default and choose **Create**.
 5. After a few minutes, the environment should be created. Under **Cloud9 IDE**, press **Open**.
-6. In the command line at the bottom, clone the [https://github.com/aws-samples/quant-trading](Git repository) using the following command:
+6. In the command line at the bottom, clone the [Git repository](https://github.com/aws-samples/quant-trading) using the following command:
   ```sh
   git clone https://github.com/aws-samples/quant-trading.git
   ```
@@ -149,9 +149,9 @@ Now that the environment is setup, let’s deploy the application using the CDK.
 
 
 
-### Adding API key to Begin Data Flow
+### Adding API Key
 
-You can have data come in from either IEX or B-PIPE (Bloomberg Market Data Feed). In this section, you’ll enter the API key in Secrets Manager and that will enable the Intraday Momentum application to start working.
+You can have data come in from either IEX or B-PIPE (Bloomberg Market Data Feed). In this section, you’ll enter the API key in Secrets Manager and that will enable the Intraday Momentum application to start working and allow the data to flow in from the market data feed.
 
 1. Navigate to the **AWS Secrets Manager** console.
 2. You should see two secrets created: `api_token_pk_sandbox` and `api_token_pk`.
