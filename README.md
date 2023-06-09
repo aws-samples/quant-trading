@@ -68,12 +68,10 @@
 
 About the project...
 
-Some bullet points:
-* info 1
-* info 2
-* info 3
+This is a codebase to initialize the underlying infrastrucure and stacks needed for real time quantitative trading as well as the basic application level logic. As a quant, your job is to focus on quantitative logic, the reality is that you have to worry about underlying infrastructure and a lot of different layers when deploying solutions. For example, where to run, how to achieve elasticity, etc. This repository and the event-driven infrastructure provided aim to provide a quick start and entry point into your own quantitative work and to help alleviate these challenges. The solution helps take care of SDLC, market data durability, market data connectivity, DevOps (elasticity), as well as the management of the underlying infrastructure. We use P&L calculations just as an example, but we'll leave the secret sauce up to you.
 
-More info...
+This real time market portfolio application on AWS is setup through the [https://aws.amazon.com/cdk/](AWS CDK). The deployed CDK infrastructure comes with an example portfolio of the S&P 500 based on intraday momentum. The intraday momentum pattern says that the first half-hour return on the market since the previous day’s market close will predict the last half-hour return. This predictability will be stronger on more volatile days, on higher volume days, on recession days, and on major macroeconomic news release days.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,29 +101,88 @@ How to get started. This project is deployed using the AWS CDK.
 
 ### Prerequisites
 
-Be sure you're using AWS CDK version 1
-* npm
+### Initial Setup
+
+You will use [https://aws.amazon.com/cloud9/](AWS Cloud9) as the IDE to setup the code and deploy the CDK environment. You can also use a different IDE if you’d prefer.
+
+1. Navigate to the **AWS Cloud9** console and press **Create environment**.
+2. Enter a name - **MarketPortfolioEnv**.
+3. Use a **t2.micro** instance type.
+4. Leave all other settings as default and choose **Create**.
+5. After a few minutes, the environment should be created. Under **Cloud9 IDE**, press **Open**.
+6. In the command line at the bottom, clone the [https://github.com/aws-samples/quant-trading](Git repository) using the following command:
   ```sh
-  npm install npm@latest -g
+  git clone https://github.com/aws-samples/quant-trading.git
   ```
 
-### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+### CDK Deployment
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Now that the environment is setup, let’s deploy the application using the CDK. You’ll need to run a few commands to get everything set up for the CDK, this will allow for the entire application to be spun up through the CDK
+
+1. In the **Cloud9 CLI**, type in the following commands to navigate to the CDK portion of the code and install the necessary dependencies
+  ```sh
+  cd AWSQuant/aws-quant-infra/deployment/cdk &&
+  npm install
+  ```
+2. Use this command to bootstrap the environment:
+  ```sh
+  cdk bootstrap
+  ```
+3. This command is needed to download a required Lambda layer for AppConfig.
+  ```sh
+  sudo yum install jq -y &&
+  aws lambda get-layer-version-by-arn —arn arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension:110 | jq -r '.Content.Location' | xargs curl -o ../../src/lambda/extension.zip
+  ```
+4. Now, to deploy the application using the CDK code enter this command:
+  ```sh
+  cdk deploy --all
+  ```
+
+*Note*: if you get an error saying the docker build failed and says “no space left on device” run this command:
+  ```sh
+  chmod +x ./../../src/utils/resize_root.sh &&
+  ./../../src/utils/resize_root.sh 50
+  ```
+
+*Note*: If you get an error from creating the DynamoDB replica instance in the DB stack, you’ll need to go to the DynamoDB console and delete the replica from the console, then redeploy the CDK stack.
+
+
+
+### Adding API key to Begin Data Flow
+
+You can have data come in from either IEX or B-PIPE (Bloomberg Market Data Feed). In this section, you’ll enter the API key in Secrets Manager and that will enable the Intraday Momentum application to start working.
+
+1. Navigate to the **AWS Secrets Manager** console.
+2. You should see two secrets created: `api_token_pk_sandbox` and `api_token_pk`.
+
+![Secrets Manager Keys][secrets-manager]
+
+3. Select `api_token_pk`.
+4. Scroll down to the section that says **Secret value** and towards the right, select **Retrieve secret value**.
+
+![Secret Value][secret-value]
+
+5. Then, choose **Edit** and paste in your IEX or B-PIPE API key.
+6. Press **Save**.
+
+
+### Looking at the Results
+
+You can view the results of the Intraday Momentum application after the day end by going to the DynamoDB table.
+
+
+1. Navigate to the **AWS DynamoDB** console.
+2. On the left, select **Tables** and then choose the table called `MvpPortfolioMonitoringPortfolioTable`.
+3. Then, press the orange button in the top right that says **Explore table items**.
+
+![DynamoDB Table Items][dynamodb-table-items]
+
+4. You should then see data populated at the bottom under **Items returned**.
+
+*Note*: If you don’t see any data, select the orange **Run** button to scan the table and retrieve the data.
+
+5. If you’d like to analyze this data further, you can download it in CSV format by selecting **Actions**, then **Download results to CSV**.
 
 
 
@@ -229,6 +286,9 @@ Use this space to list resources you find helpful and would like to give credit 
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot1]: assets/AWS_Quant_Real_Time_Operational_View.drawio.png
 [product-screenshot2]: assets/AWS_Quant_Real_Time_Installation.drawio.png
+[secrets-manager]: assets/installation/secrets_manager.png
+[secret-value]: assets/installation/secret_value.png
+[dynamodb-table-items]: assets/installation/dynamodb_table_items.png
 [aws-cdk]: https://img.shields.io/badge/-AWS%20CDK-orange
 [cdk-url]: https://aws.amazon.com/cdk/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
