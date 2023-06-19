@@ -42,7 +42,7 @@ if ! command -v jq &> /dev/null
 then
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         echo "******** Installing JQ on linux ********"
-        yum install jq -y
+        sudo yum install jq -y
    
     else
            echo "Please make sure you have installed the JQ binary and is on the path to continue"
