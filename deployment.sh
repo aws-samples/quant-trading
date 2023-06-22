@@ -71,7 +71,7 @@ cdk diff --no-color &> changes.txt
 echo "******** Done ********"
 
 echo "******** CDK Deploy ********"
-cdk deploy "*" --outputs-file outputs.json
+cdk deploy "*" --outputs-file outputs.json --require-approval never
 echo "******** Done ********"
 
 echo "******** Checking if Terraform is installed ********"
