@@ -15,7 +15,7 @@ COPY --from=builder /opt /opt
 RUN pip install pandas
 RUN pip install xbbg
 RUN pip install pyEX
-RUN pip install  boto3
+RUN pip install boto3
 RUN pip install python-binance
 RUN pip install awswrangler
 #RUN conda install -c conda-forge ta-lib -y

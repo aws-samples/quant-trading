@@ -1,6 +1,6 @@
 provider "aws" {
   region = "us-west-2"
-  profile = "quant"
+  profile = "default"
 }
 
 data "aws_ssoadmin_instances" "sso_instance" {}

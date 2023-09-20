@@ -29,11 +29,11 @@ RUN /root/anaconda3/envs/${PYTHON_ENVS}/bin/pip install python-binance
 RUN /root/anaconda3/envs/${PYTHON_ENVS}/bin/pip install pyEX
 RUN /root/anaconda3/envs/${PYTHON_ENVS}/bin/pip install awswrangler
 RUN /root/anaconda3/envs/${PYTHON_ENVS}/bin/pip install xbbg==0.7.7a3
-RUN /root/anaconda3/envs/${PYTHON_ENVS}/bin/pip install blpapi --index-url=https://bcms.bloomberg.com/pip/simple/
+RUN /root/anaconda3/envs/${PYTHON_ENVS}/bin/pip install blpapi==3.19.3 --index-url=https://bcms.bloomberg.com/pip/simple/
 RUN conda install -n ${PYTHON_ENVS} numpy -y
 RUN conda install -n ${PYTHON_ENVS} boto3 -y
 RUN conda install -n ${PYTHON_ENVS} s3fs -y
-RUN conda install -n ${PYTHON_ENVS} -c conda-forge ta-lib -y
+# RUN conda install -n ${PYTHON_ENVS} -c conda-forge ta-lib -y
 ##### RUN conda install -n ${PYTHON_ENVS} hashlib -y
 ENV ENTRY_POINT='source activate '${PYTHON_ENVS}
 RUN mkdir ${CUSTOM_SOURCE_DIR}
